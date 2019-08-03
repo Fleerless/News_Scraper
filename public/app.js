@@ -1,7 +1,6 @@
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
-  console.log(data)
   for (var i = 0; i < data.length; i++) {
     // SAVE db DATA TO ELEMENTS AND PREPEND THEM
     let div = $("<div class=article id=click data-id='" + data[i]._id + "'>");
@@ -11,7 +10,6 @@ $.getJSON("/articles", function(data) {
     let img = $('<img src='+data[i].img+'>');
     let date = $('<p>').text(`Article Posted on ${data[i].date}`);
 
-    console.log(date);
     // Display the apropos information on the page
     h3.append(strong);
     div.append(img, h3, p);
