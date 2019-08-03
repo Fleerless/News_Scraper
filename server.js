@@ -24,10 +24,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB  
-mongoose.connect(process.env.MONGODB_URI || 
+mongoose.connect(
   "mongodb://Heroku:Heroku1@ds141410.mlab.com:41410/heroku_ggfr6jf2", 
-  { useNewUrlParser: true,
-    useMongoClient: true });
+  );
 
 // Routes
 
