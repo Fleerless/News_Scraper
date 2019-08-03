@@ -6,13 +6,12 @@ $.getJSON("/articles", function(data) {
     let div = $("<div class=article id=click data-id='" + data[i]._id + "'>");
     let h3 = $('<a href='+data[i].link+'>')
     let strong = $('<strong>').text(data[i].title);
-    let p = $('<p>').text(data[i].synop);
     let img = $('<img src='+data[i].img+'>');
     let date = $('<p>').text(`Article Posted on ${data[i].date}`);
 
     // Display the apropos information on the page
     h3.append(strong);
-    div.append(img, h3, p);
+    div.append(img, h3);
     if (data[i].date){
       div.append(date);
     }

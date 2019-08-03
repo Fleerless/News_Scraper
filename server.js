@@ -58,10 +58,6 @@ app.get("/scrape", function(req, res) {
             .find('.ms-item_date-value')
             .text()
 
-            result.synop = $(this)
-            .find('.ms-item_link--text')
-            .text()
-
             console.log("Synop: ", result.synop)
 
         // Create a new Article using the `result` object built from scraping
