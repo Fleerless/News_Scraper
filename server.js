@@ -24,9 +24,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB  
-mongoose.connect(
-  "mongodb://Heroku:Heroku1@ds141410.mlab.com:41410/heroku_ggfr6jf2", 
-  );
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
 // Routes
 
@@ -61,13 +59,15 @@ app.get("/scrape", function(req, res) {
             .text()
 
             result.synop = $(this)
-            .find('.')
+            .find('.ms-item_link--text')
+            .text()
+
+            console.log("Synop: ", result.synop)
 
         // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
             .then(function(dbArticle) {
             // View the added result in the console
-                console.log("SERVER ", dbArticle);
             })
             .catch(function(err) {
             // If an error occurred, log it
