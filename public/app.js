@@ -1,6 +1,7 @@
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
+  console.log(data)
   for (var i = 0; i < data.length; i++) {
     // SAVE db DATA TO ELEMENTS AND PREPEND THEM
     let div = $("<div class=article id=click data-id='" + data[i]._id + "'>");
